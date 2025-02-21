@@ -62,7 +62,7 @@ app.get("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.get("/", async (req, res) => {
     const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
     console.log("Start");
-    sleep(2000).then(() => console.log("End"));
+    sleep(12000).then(() => console.log("End"));
 
     res.send("index");
 });
