@@ -82,4 +82,4 @@ app.listen(PORT, async () => {
     app.emit("ready");
 });
 
-export { app };
+export default app; // export the app for testing purposes
