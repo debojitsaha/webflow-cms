@@ -59,13 +59,6 @@ app.use(express.static(path.join(__dirname, "../static"))); // defining director
 app.get("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Add grouped routes to the express app from ./routes/main.route.ts
-app.get("/", async (req, res) => {
-    const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-    console.log("Start");
-    sleep(12000).then(() => console.log("End"));
-
-    res.send("index");
-});
 app.use("/", mainRouter);
 
 // Start the express server in the defined port, this too uses a callback function which we have written right inside.

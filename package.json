@@ -4,19 +4,9 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "build": "tsc -p .",
-        "cover": "nyc npm run test && nyc --reporter lcov --reporter text --report-dir coverage report",
-        "cover:test": "nyc npm run test",
-        "cover:report": "nyc --reporter lcov --reporter text --report-dir coverage report",
-        "dev": "cross-env NODE_ENV=development nodemon ./src/app.ts",
-        "docs": "typedoc --tsconfig ./tsconfig.json",
-        "lint": "eslint ./src",
-        "lint:fix": "eslint ./src --fix",
-        "prettify": "prettier --write .",
-        "release": "commit-and-tag-version",
-        "start": "npm run build && cross-env NODE_ENV=production node ./build/app.js",
-        "test": "cross-env NODE_ENV=test mocha --timeout 15000 --require ts-node/register ./src/tests/integrations/*.specs.ts --exit",
-        "prepare": "husky install"
+        "dev": "ts-node-dev --respawn src/server.ts",
+        "build": "tsc",
+        "start": "node build/server.js"
     },
     "repository": {
         "type": "git",
