@@ -11,4 +11,4 @@ mainRouter.use((req: Request, res: Response) => {
     GenerateResponse(res, 404);
 });
 
-export { mainRouter };
+export default mainRouter;
