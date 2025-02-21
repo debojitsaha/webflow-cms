@@ -20,7 +20,6 @@ import swaggerUi from "swagger-ui-express"; // swagger is the package we use for
 import { connect, getConnectionState, isValidConnectionURI } from "./config/db.config"; // has code to establish connection the mongo db
 import { swaggerSpec } from "./config/swagger.config"; // has configuration for swagger
 import { mainRouter } from "./routes/main.route";
-import { logger } from "./utils/logger.util";
 
 // Import variables for the env file.
 const PROJECT_NAME = String(process.env.PROJECT_NAME);
@@ -73,7 +72,6 @@ app.listen(PORT, async () => {
 
         // tslint:disable-next-line:no-console
         console.log(`Listening on ${BASE_URL}:${PORT}...`);
-        logger.info(`Listening on ${BASE_URL}:${PORT}...`);
     }
 
     // Emit ready state
