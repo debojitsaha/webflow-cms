@@ -20,6 +20,7 @@ import swaggerUi from "swagger-ui-express"; // swagger is the package we use for
 import { connect, getConnectionState, isValidConnectionURI } from "./config/db.config"; // has code to establish connection the mongo db
 import { swaggerSpec } from "./config/swagger.config"; // has configuration for swagger
 import { mainRouter } from "./routes/main.route";
+import Blog from "./models/blog.model";
 
 // Import variables for the env file.
 const PROJECT_NAME = String(process.env.PROJECT_NAME);
@@ -61,7 +62,8 @@ app.get("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 // Add grouped routes to the express app from ./routes/main.route.ts
 app.get("/", async (req, res) => {
     const db = await connect(MONGO_URI);
-    res.send(`${getConnectionState(db.connection.readyState)} to the database`);
+    const x = await Blog.find();
+    res.send(`${getConnectionState(db.connection.readyState)} to the database - ${x}`);
     res.send("Hello from Vercel!");
 });
 app.use("/", mainRouter);
