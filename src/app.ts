@@ -54,15 +54,6 @@ app.set("view engine", "ejs"); // setting the template engine of express as ejs
 app.set("views", path.join(__dirname, "../views")); // defining directory to serve views.
 app.use(express.static(path.join(__dirname, "../static"))); // defining directory to serve static files.
 
-/*
-    Default route for logging server startup time. The "/" part is the route definition, what follows is the controller function written inside like a callback. Ideally, we should write this controller in a different file and refer it here like app.get("/", controllerFunction);
-
-    Inside the controller, we are just sending a raw response which consists of a message that this server was started at xyz date-time.
-*/
-app.get("/status", (_req: express.Request, res: express.Response) =>
-    res.send(`${PROJECT_NAME} server started on ${new Date()}`)
-);
-
 /* 
     Swagger Documentation route. If you browse to the /docs endpoint, you will see the UI based API documentation swagger creates for us.
 */
