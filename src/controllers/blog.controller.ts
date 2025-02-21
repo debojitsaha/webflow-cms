@@ -32,7 +32,8 @@ const CreateBlog = async (req: Request, res: Response, next: NextFunction) => {
 const FetchBlogs = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const blogs = await blogService.fetchtBlogs();
-        GenerateResponse(res, 200, blogs, "Blogs fetched successfully");
+        // GenerateResponse(res, 200, blogs, "Blogs fetched successfully");
+        res.send("Blogs fetched successfully");
     } catch (error) {
         next(error);
     }
