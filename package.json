@@ -27,6 +27,7 @@
     "license": "ISC",
     "homepage": "https://github.com/debojitsaha/nodets-api-template#readme",
     "dependencies": {
+        "@vercel/node": "^5.1.7",
         "bcryptjs": "^3.0.2",
         "cors": "^2.8.5",
         "dotenv": "^16.4.7",
