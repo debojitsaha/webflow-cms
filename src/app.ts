@@ -59,7 +59,11 @@ app.use(express.static(path.join(__dirname, "../static"))); // defining director
 app.get("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Add grouped routes to the express app from ./routes/main.route.ts
+app.get("/", (req, res) => {
+    res.send("Hello from Vercel!");
+});
 app.use("/", mainRouter);
+
 
 // Start the express server in the defined port, this too uses a callback function which we have written right inside.
 app.listen(PORT, async () => {
